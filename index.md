@@ -1,7 +1,7 @@
 ---
 layout: page
 title: bilal bhatti
-tagline: giggity giggity
+tagline: giggity giggity goo
 ---
 {% include JB/setup %}
 
