@@ -21,7 +21,15 @@ docker login docker.pkg.github.com --username $GIT_USER
 
 Build your image and publish it
 
+Dockerfile
+{% highlight docker %}
+FROM scratch
+ADD "./$APP" "/"
+ENTRYPOINT ["/$APP"]
+{% endhighlight %}
+
 {% highlight sh %}
+docker build -t $GIT_USER/$APP/$ARCH:$VERSION .
 docker tag $GIT_USER/$APP/$ARCH docker.pkg.github.com/$GIT_USER/$APP/$ARCH:$VERSION
 docker push docker.pkg.github.com/$GIT_USER/$APP/$ARCH:$VERSION
 {% endhighlight %}
