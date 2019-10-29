@@ -24,8 +24,8 @@ Build your image and publish it
 Dockerfile
 {% highlight docker %}
 FROM scratch
-ADD "./$APP" "/"
-ENTRYPOINT ["/$APP"]
+ADD "./echo" "/"
+ENTRYPOINT ["/echo"]
 {% endhighlight %}
 
 {% highlight sh %}
