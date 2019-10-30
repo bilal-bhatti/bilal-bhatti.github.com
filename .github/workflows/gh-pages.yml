@@ -3,7 +3,7 @@ name: github pages
 on:
   push:
     branches:
-    - gh-pages
+    - master
 
 jobs:
   build-deploy:
@@ -14,17 +14,17 @@ jobs:
       #   submodules: true
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.2.3
+      uses: peaceiris/actions-hugo@v2.2.2
       with:
-        hugo-version: '0.59.0'
+        hugo-version: '0.58.3'
         extended: true
 
     - name: Build
-      run: hugo --gc --minify --cleanDestinationDir
+      run: hugo --minify
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2.5.0
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        PUBLISH_BRANCH: master
+        PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
