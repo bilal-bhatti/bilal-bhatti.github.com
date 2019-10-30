@@ -1,7 +1,6 @@
 baseURL = "https://bilal-bhatti.github.io/"
 languageCode = "en-us"
 title = "Bilal Bhatti"
-theme = "hugo-primer"
 copyright = "&copy;Bilal Bhatti 2019"
 
 [params]
