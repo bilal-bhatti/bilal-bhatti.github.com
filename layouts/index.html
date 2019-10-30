@@ -16,8 +16,7 @@
       <a href="{{ .RelPermalink }}">
         <h3>{{ .Title }}</h3>
       </a>
-      <small>{{ .Permalink }}</small>
-      {{ .Date.Format "2006-01-02" }}
+      <!-- <small>{{ .Permalink }}{{ .Date.Format "2006-01-02" }}</small> -->
     </div>
     {{ .Summary }}
   </div>
@@ -34,7 +33,7 @@
         {{ end }}
 
         {{ range .Paginator.Pagers }}
-          <a href="{{ .RelPermalink }}">
+          <a href="{{ .URL }}">
             {{ .PageNumber }}
           </a>
         {{ end }}

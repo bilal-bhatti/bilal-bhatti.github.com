@@ -14,13 +14,13 @@ jobs:
       #   submodules: true
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.2.2
+      uses: peaceiris/actions-hugo@v2.2.3
       with:
-        hugo-version: '0.58.3'
+        hugo-version: '0.59.0'
         extended: true
 
     - name: Build
-      run: hugo --minify
+      run: hugo --gc --minify --cleanDestinationDir
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2.5.0
