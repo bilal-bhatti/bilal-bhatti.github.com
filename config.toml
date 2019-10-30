@@ -2,6 +2,7 @@ baseURL = "https://bilal-bhatti.github.io/"
 languageCode = "en-us"
 title = "Bilal Bhatti"
 copyright = "&copy;Bilal Bhatti 2019"
+theme = "hugo-primer"
 
 [params]
 # Chose Social Sharing Buttons you want to use.
