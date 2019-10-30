@@ -40,5 +40,5 @@ docker push docker.pkg.github.com/$GIT_USER/$APP/$ARCH:$VERSION
 
 Run your newly built and published image with:
 {{< highlight sh >}}
-docker run -d docker.pkg.github.com/$GIT_USER/$APP/$ARCH:$VERSION
+docker run -d docker.pkg.github.com/$GIT_USER/echo/linux-amd64:1.0.0
 {{< /highlight >}}
