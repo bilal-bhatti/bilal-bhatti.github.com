@@ -26,23 +26,14 @@ Add registry to Docker
 docker login docker.pkg.github.com --username $GIT_USER
 {{< /highlight >}}
 
-Build your image and publish it
-
-Dockerfile
-{{< highlight docker >}}
-FROM scratch
-ADD "./echo" "/"
-ENTRYPOINT ["/echo"]
-{{< /highlight >}}
-
 {{< highlight sh >}}
-docker build -t $GIT_USER/echo/linux-amd64:$VERSION .
-docker tag $GIT_USER/$APP/$ARCH docker.pkg.github.com/$GIT_USER/$APP/$ARCH:$VERSION
-docker push docker.pkg.github.com/$GIT_USER/$APP/$ARCH:$VERSION
+docker build -t $GIT_USER/echo/linux-amd64:1.0.0 .
+docker tag $GIT_USER/echo/linux-amd64 docker.pkg.github.com/$GIT_USER/echo/linux-amd64:1.0.0
+docker push docker.pkg.github.com/$GIT_USER/echo/linux-amd64:1.0.0
 {{< /highlight >}}
 
 
 Run your newly built and published image with:
 {{< highlight sh >}}
-docker run -d docker.pkg.github.com/$GIT_USER/echo/linux-amd64:1.0.0
+docker run -d -p 8888:8888 docker.pkg.github.com/$GIT_USER/echo/linux-amd64:1.0.0 -listen ":8888"
 {{< /highlight >}}

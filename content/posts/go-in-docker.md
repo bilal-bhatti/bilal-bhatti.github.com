@@ -20,14 +20,25 @@ curl http://<host>/echo/ping
 
 Code for the server is hosted at :
 ```
-git clone http://github.com/bilal-bhatti/echo.git
+git clone https://github.com/bilal-bhatti/echo.git
 ```
+
 
 Build docker image
 {{< highlight sh >}}
 cd echo
 env GOOS=linux GOARCH=amd64 go build -o ./dist/echo-linux-amd64
 docker build -t $GIT_USER/echo/linux-amd64 .
+{{< /highlight >}}
+
+Dockerfile is using the `scratch` base image, adding our binary, and specifying the start command.
+
+{{< highlight docker>}}
+FROM scratch
+
+ADD "https://curl.haxx.se/ca/cacert.pem" "/etc/ssl/certs/ca-certificates.crt"
+ADD "./dist/echo-linux-amd64" "/echo"
+ENTRYPOINT ["/echo"]
 {{< /highlight >}}
 
 Run image
