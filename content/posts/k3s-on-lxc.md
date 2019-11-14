@@ -1,7 +1,7 @@
 ---
 title: "K3S on LXC"
 date: 2019-10-23T15:22:01-05:00
-draft: true
+draft: false
 categories:
 tags:
 - docker
@@ -104,7 +104,7 @@ root:1000000:1000000000
 <your username>:1000000:1000000000
 {{< /highlight >}}
 
-Configure lxd, set it to use `br0` network bridge. 
+Configure lxd, set it to use `br0` network bridge. Make sure to select `dir` as the storage backend. 
 {{< highlight sh>}}
 lxd init
 {{< /highlight >}}
@@ -158,27 +158,7 @@ apt upgrade
 apt install apt-utils
 {{< /highlight >}}
 
-At this point the base container is ready 
-
-```
-apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common nano docker.io
-nano /etc/docker/daemon.json
-{
-  "storage-driver": "overlay2",
-  "ip-masq": false,
-  "iptables": false
-}
-systemctl start docker
-systemctl enable docker
-docker run hello-world
-```
-
-```
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
-apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
-apt update
-apt install kubeadm kubelet -y
-```
+At this point the base container is ready. In ***part 2*** of this guide we'll install and configure a 3 node K3S cluster and deploy a simple web application.
 
 
 # References
