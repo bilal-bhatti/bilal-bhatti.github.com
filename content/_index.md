@@ -1,14 +1,7 @@
 ---
-title: ""
-date: 2019-10-01T12:30:57-05:00
+title: "Notes & Scraps"
+date: 2019-10-10T12:11:10-05:00
 draft: false
-categories:
+category: 
 tags:
-keywords:
 ---
-
-notes and scraps
-----------
-
-
-
