@@ -8,7 +8,7 @@ tags:
 - kubernetes
 - k3s
 keywords:
-summary: Setup a k3S cluster on single machine using lxc and k3s distribution.
+summary: Setup a K3S cluster on single machine using LXC and K3S distribution.
 ---
 Most other options for running a local K8S cluster are quiet resource intensive and aren't easy to configure and setup. I have this setup on an old computer with a Q6600 CPU and 4GB of ram. It let's me scale up the cluster to 5 worker nodes, without issues. It's no fun to have just a one node cluster.
 
